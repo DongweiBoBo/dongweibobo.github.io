@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="jquery-ui.css" />
+	<style>
+		#dragdiv {
+			width: 100px;
+			height: 100px;
+			color:red;
+			background-color: #eeffee;
+			border: 5px solid black;
+			padding: 25px;
+		}
+		#dropdiv {
+			position: absolute;
+			top:80px;
+			left: 200px;
+			width: 300px;
+			height: 200px;
+			border: 1px solid black;
+			padding: 5px;
+		}
+	</style>
+	<title>拖和拉</title>
+	<script src="jquery.js"></script>
+	<script src="jquery-ui.js"></script>
+	<script>
+		$(function() {
+			$("#dragdiv").draggable();
+			$("#dropdiv").droppable({
+				drop:function(){
+					$("#dragdiv").text("随便拖动");
+				},
+				out:function(){
+					$("#dragdiv").text("可以随意拖动");
+				}
+			}).resizable();
+		});
+	</script>
+	</head>
+	<body>
+		<div id="dropdiv">不动的</div>
+		<div id="dragdiv">你可以拖着我跑</div>
+	</body>
+</html>
